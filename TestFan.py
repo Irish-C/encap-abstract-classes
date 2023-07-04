@@ -1,7 +1,13 @@
 from Fan import Fan
+import PySimpleGUI as sg
 
+# Test Program for Fan
 class TestFan:
     def run(self):
+
+        # insert theme
+        sg.theme('DarkBlue4')
+
         # create two objects
         fan1 = Fan()
         fan2 = Fan()
