@@ -21,13 +21,13 @@ class Fan:
     def set_speed(self, speed):
         self.__speed = speed
 
-    # a method that returns False when Fan is off
-    def turn_on(self):
+    # a method that returns False whether Fan is off
+    def get_on(self):
         return self.__on
 
-    # a method that returns False when Fan is on
-    def turn_on(self, on):
-        self.__on = True
+    # a method that returns False whether Fan is on
+    def set_on(self, on):
+        self.__on = on
 
     # a method that returns the current radius
     def get_radius(self):
