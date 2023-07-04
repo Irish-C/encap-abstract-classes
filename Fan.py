@@ -6,4 +6,7 @@ class Fan:
 
     # constructor
     def __init__(self, speed=SLOW, radius=5, color='blue', on=False):
-        pass
+        self.__speed = speed
+        self.__on = on
+        self.__radius = radius
+        self.__color = color
