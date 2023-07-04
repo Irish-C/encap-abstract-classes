@@ -1,4 +1,4 @@
-from Fan import Fan
+from Fan.Fan import Fan
 import PySimpleGUI as sg
 
 # Test Program for Fan
