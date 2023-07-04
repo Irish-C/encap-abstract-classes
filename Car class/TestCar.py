@@ -2,13 +2,15 @@
 from Car import Car
 import tkinter as tk
 from tkinter import ttk
+import time
 
 
 """ Create methods for Test Program """
+
 # a method that returns a current speed
 def update_car_speed():
     current_speed = car1.get_speed()
-    current_speed.config(text=f"Current Speed: {current_speed} mph")
+    speed_label.config(text=f"Current Speed: {current_speed} mph")
 
 # a method that updates loading bar
 def update_loading_bar(value):
@@ -17,6 +19,7 @@ def update_loading_bar(value):
 
 
 """ Display Car object with tkinter as GUI """
+
 # Create a car object
 car1 = Car(2017, 'Volkswagen', '')
 
@@ -29,5 +32,11 @@ speed_label.pack()
 loading_bar = ttk.Progressbar(root, orient="horizontal", length=200, mode="determinate")
 loading_bar.pack()
 
+for i in range(5):
+    car1.accelerate()
+    update_car_speed()
+    update_loading_bar((i+1) * 20)
+    root.update()
+    time.sleep(1)
 
 root.mainloop()
