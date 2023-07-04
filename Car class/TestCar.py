@@ -26,7 +26,7 @@ car1 = Car(2017, 'Volkswagen', '')
 root = tk.Tk()
 root.title('Car Testing')
 
-car_info_label = tk.LabelFrame(root, text=f"Car: {car1._Car__year_model}, {car1._Car__make}")
+car_info_label = tk.Label(root, text=f"MY CAR\n\nYear: {car1._Car__year_model}\nMake: {car1._Car__make}\n")
 car_info_label.pack()
 
 # create a label for current speed
@@ -47,7 +47,7 @@ def car1_acceleration():
         time.sleep(1)
 
     # Create label each acceleration
-    car_speed_label = tk.Label(root, text=f"\nYour current Speed after 5x acceleration:  {car1.get_speed()} mph")
+    car_speed_label = tk.Label(root, text=f"\nMy current Speed after 5x acceleration:  {car1.get_speed()} mph")
     car_speed_label.pack()
 
 # Iterate deceleration five(5) times
@@ -60,7 +60,7 @@ def car1_brake():
         time.sleep(1)
 
     # Create label each deceleration
-    car_speed_label = tk.Label(root, text=f"\nYour current Speed after 5x brake:  {car1.get_speed()} mph")
+    car_speed_label = tk.Label(root, text=f"\nMy current Speed after 5x brake:  {car1.get_speed()} mph")
     car_speed_label.pack()
 
 
