@@ -7,13 +7,13 @@ class Car:
 
 
     # a method that add 5 each time its called
-    def accelerate():
-        pass
+    def accelerate(self):
+        self.__speed += 5
 
     # a method that subtract 5 each time its called
-    def brake():
-        pass
+    def brake(self):
+        self.__speed -= 5
     
     # a method that returns the current speed
-    def get_speed():
-        pass
+    def get_speed(self):
+        return self.__speed
