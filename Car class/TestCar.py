@@ -39,12 +39,24 @@ for i in range(5):
     car1.accelerate()
     update_car_speed()
     update_loading_bar((i+1) * 20)
-
-    # Create label each acceleration
-    car_speed_label = tk.Label(root, text=f"Speed #{i+1}: {car1.get_speed} mph")
-    car_speed_label.pack()
-
     root.update()
     time.sleep(1)
+
+# Create label each acceleration
+car_speed_label = tk.Label(root, text=f"\nYour current Speed after 5x acceleration:  {car1.get_speed()} mph")
+car_speed_label.pack()
+
+
+# Iterate deceleration five(5) times
+for i in range(5):
+    car1.brake()
+    update_car_speed()
+    update_loading_bar((i+1) * 20)
+    root.update()
+    time.sleep(1)
+
+# Create label each deceleration
+car_speed_label = tk.Label(root, text=f"\nYour current Speed after 5x brake:  {car1.get_speed()} mph")
+car_speed_label.pack()
 
 root.mainloop()
