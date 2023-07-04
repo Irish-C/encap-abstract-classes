@@ -8,26 +8,27 @@ import time
 
 """ Create methods for Test Program """
 
-# a method that returns a current speed
-def update_car_speed():
-    current_speed = car1.get_speed()
-    speed_label.config(text=f"{current_speed} mph")
+class TestCar():
+    # a method that returns a current speed
+    def update_car_speed(self):
+        current_speed = car1.get_speed()
+        speed_label.config(text=f"{current_speed} mph")
 
-# a method that updates loading bar
-def update_loading_bar(value):
-    global loading_bar
-    loading_bar['value'] = value
+    # a method that updates loading bar
+    def update_loading_bar(self, value):
+        global loading_bar
+        loading_bar['value'] = value
 
 
 """ Display Car object with tkinter as GUI """
 
 # Create a car object
-car1 = Car(2017, 'Volkswagen','')
+car1 = Car(2017, 'Volkswagen',0)
 
 # Name the window, and make window appear at the center
 root = ThemedTk(theme="arc")
 root.title('Car Testing')
-root.eval('tk::PlaceWindow {} center'.format(root.winfo_toplevel()))
+root.geometry("600x400+{}+{}".format(int(root.winfo_screenwidth() / 2 - 300), 0))
 
 # Create Car info of car1 into a frame
 car_info_frame = tk.LabelFrame(root, text="MY CAR")
@@ -43,15 +44,14 @@ loading_bar.pack()
 speed_label = tk.Label(root, text="\n0 mph")
 speed_label.pack()
 
-
-
 # Iterate acceleration five(5) times
 def car1_acceleration():
-    for i in range(-1,5,1):
+    global speed_label, loading_bar
+    for i in range(5):
         time.sleep(1)
         car1.accelerate()
-        update_car_speed()
-        update_loading_bar((i+1) * 20)
+        TestCar().update_car_speed()
+        TestCar().update_loading_bar((i+1) * 20)
         root.update()
 
     # Create label each acceleration
@@ -62,10 +62,11 @@ def car1_acceleration():
 
 # Iterate deceleration five(5) times
 def car1_brake():
+    global speed_label, loading_bar
     for i in range(5):
         car1.brake()
-        update_car_speed()
-        update_loading_bar((i+1) * 20)
+        TestCar().update_car_speed()
+        TestCar().update_loading_bar((i+1) * 20)
         root.update()
         time.sleep(1)
 
@@ -75,7 +76,7 @@ def car1_brake():
     car_speed_label_2 = tk.Label(root, text="After 5x brake")
     car_speed_label_2.pack()
 
-
+# call necessary methods
 car1_acceleration()
 car1_brake()
 root.mainloop()
