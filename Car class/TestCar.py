@@ -26,16 +26,24 @@ car1 = Car(2017, 'Volkswagen', '')
 root = tk.Tk()
 root.title('Car Testing')
 
+# create a label for current speed
 speed_label = tk.Label(root, text="Current Speed: 0 mph")
 speed_label.pack()
 
+# create a loading bar layout
 loading_bar = ttk.Progressbar(root, orient="horizontal", length=200, mode="determinate")
 loading_bar.pack()
 
+# Iterate acceleration five(5) times
 for i in range(5):
     car1.accelerate()
     update_car_speed()
     update_loading_bar((i+1) * 20)
+
+    # Create label each acceleration
+    car_speed_label = tk.Label(root, text=f"Speed #{i+1}: {car1.get_speed} mph")
+    car_speed_label.pack()
+
     root.update()
     time.sleep(1)
 
