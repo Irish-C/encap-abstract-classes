@@ -10,7 +10,7 @@ import time
 # a method that returns a current speed
 def update_car_speed():
     current_speed = car1.get_speed()
-    speed_label.config(text=f"Current Speed: {current_speed} mph")
+    speed_label.config(text=f"{current_speed} mph")
 
 # a method that updates loading bar
 def update_loading_bar(value):
@@ -23,19 +23,26 @@ def update_loading_bar(value):
 # Create a car object
 car1 = Car(2017, 'Volkswagen', '')
 
+# Name the window, and make window appear at the center
 root = tk.Tk()
 root.title('Car Testing')
+root.eval('tk::PlaceWindow {} center'.format(root.winfo_toplevel()))
 
-car_info_label = tk.Label(root, text=f"MY CAR\n\nYear: {car1._Car__year_model}\nMake: {car1._Car__make}\n")
+# Create Car info of car1 into a frame
+car_info_frame = tk.LabelFrame(root, text="MY CAR")
+car_info_frame.pack()
+car_info_label = tk.Label(car_info_frame, text=f"\nYear: {car1._Car__year_model}\nMake: {car1._Car__make}\n", font=("Arial", 11))
 car_info_label.pack()
-
-# create a label for current speed
-speed_label = tk.Label(root, text="Current Speed: 0 mph")
-speed_label.pack()
 
 # create a loading bar layout
 loading_bar = ttk.Progressbar(root, orient="horizontal", length=200, mode="determinate")
 loading_bar.pack()
+
+# create a label for current speed
+speed_label = tk.Label(root, text="\n0 mph")
+speed_label.pack()
+
+
 
 # Iterate acceleration five(5) times
 def car1_acceleration():
@@ -47,7 +54,7 @@ def car1_acceleration():
         time.sleep(1)
 
     # Create label each acceleration
-    car_speed_label = tk.Label(root, text=f"\nMy current Speed after 5x acceleration:  {car1.get_speed()} mph")
+    car_speed_label = tk.Label(root, text=f"\nMy Speed after 5x acceleration:  {car1.get_speed()} mph", font=("Arial", 12))
     car_speed_label.pack()
 
 # Iterate deceleration five(5) times
@@ -60,7 +67,7 @@ def car1_brake():
         time.sleep(1)
 
     # Create label each deceleration
-    car_speed_label = tk.Label(root, text=f"\nMy current Speed after 5x brake:  {car1.get_speed()} mph")
+    car_speed_label = tk.Label(root, text=f"My Speed after 5x brake:  {car1.get_speed()} mph", font=("Arial", 12))
     car_speed_label.pack()
 
 
