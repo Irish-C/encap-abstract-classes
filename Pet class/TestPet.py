@@ -9,3 +9,8 @@ import time
 class TestPet:
     def __init__(self):
         self.pet = Pet()
+
+        # Create window
+        self.root = tk.Tk()
+        self.root.title('My Pet Profile')
+        self.root.geometry('300x250')
