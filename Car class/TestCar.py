@@ -5,10 +5,23 @@ from tkinter import ttk
 from ttkthemes import ThemedTk
 import time
 
-
-""" Create methods for Test Program """
-
+# Create TestCar class
 class TestCar():
+
+    # constructor
+    def __init__(self):
+        # Name the window, and make window appear at the center
+        self.root = ThemedTk(theme="arc")
+        self.root.title('Car Testing')
+        self.root.geometry("600x400+{}+{}".format(int(self.root.winfo_screenwidth() / 2 - 300), 0))
+
+        # Create a car object
+        self.car1 = Car(2017, 'Volkswagen',0)
+
+
+
+
+
     # a method that returns a current speed
     def update_car_speed(self):
         current_speed = car1.get_speed()
@@ -18,17 +31,6 @@ class TestCar():
     def update_loading_bar(self, value):
         global loading_bar
         loading_bar['value'] = value
-
-
-""" Display Car object with tkinter as GUI """
-
-# Create a car object
-car1 = Car(2017, 'Volkswagen',0)
-
-# Name the window, and make window appear at the center
-root = ThemedTk(theme="arc")
-root.title('Car Testing')
-root.geometry("600x400+{}+{}".format(int(root.winfo_screenwidth() / 2 - 300), 0))
 
 # Create Car info of car1 into a frame
 car_info_frame = tk.LabelFrame(root, text="MY CAR")
