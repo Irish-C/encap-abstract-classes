@@ -26,8 +26,9 @@ class TestFan:
 
         title = "Fan's Test Program"
 
+        # Place fan1 and fan2 into the TestFan layout
         TestFan_layout = [
             [sg.Text(title.center(50), font=('Algerian', 25), justification='center')],
             [sg.Frame('', [[sg.Text(f"Fan 1 \n\nspeed: {fan1.get_speed()} \n,radius: {fan1.get_radius()} \ncolor {fan1.get_color()}\n\n\n", size=(50,5), font=('Elephant',12))]], background_color='Orange',border_width=3)], 
-            [sg.Frame('', [[sg.Text(f"Fan2's speed is {fan1.get_speed()} and volume level is {fan2.get_radius()}.", size=(35,1), font=('Elephant',12))]], background_color='Orange',border_width=3)],
+            [sg.Frame('', [[sg.Text(f"Fan 2 \n\nspeed: {fan2.get_speed()} \n,radius: {fan2.get_radius()} \ncolor {fan2.get_color()}\n\n\n", size=(50,5), font=('Elephant',12))]], background_color='Orange',border_width=3)], 
         ]
