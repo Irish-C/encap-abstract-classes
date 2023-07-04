@@ -73,6 +73,3 @@ class TestCar():
     # a method that updates loading bar
     def update_loading_bar(self, value):
         self.loading_bar['value'] = value
-
-Test_car1 = TestCar()
-Test_car1.run()

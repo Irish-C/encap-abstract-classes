@@ -33,6 +33,17 @@ class TestPet():
         self.age_entry = ttk.Entry(self.root)
         self.age_entry.pack()
 
-if __name__ == "__main__":
-    gui = TestPet()
-    gui.root.mainloop()
+        # a save button for pet profile
+        self.save_button = ttk.Button(self.root, text="Save", command=self.save)
+        self.save_button.pack()
+
+    # a method that gets the name, animal_type, and age of the pet
+    def save_info(self):
+        name = self.__name_entry.get()
+        animal_type = self.__animal_type_entry.get()
+        age = self.__age_entry.get()
+
+        if age.isdigit():  # Check if age is a positive integer value
+            self.pet.set_name(name)
+            self.pet.set_animal_type(animal_type)
+            self.pet.set_age(int(age))
