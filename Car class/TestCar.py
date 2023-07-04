@@ -2,6 +2,7 @@
 from Car import Car
 import tkinter as tk
 from tkinter import ttk
+from ttkthemes import ThemedTk
 import time
 
 
@@ -21,10 +22,10 @@ def update_loading_bar(value):
 """ Display Car object with tkinter as GUI """
 
 # Create a car object
-car1 = Car(2017, 'Volkswagen', '')
+car1 = Car(2017, 'Volkswagen','')
 
 # Name the window, and make window appear at the center
-root = tk.Tk()
+root = ThemedTk(theme="arc")
 root.title('Car Testing')
 root.eval('tk::PlaceWindow {} center'.format(root.winfo_toplevel()))
 
@@ -46,16 +47,18 @@ speed_label.pack()
 
 # Iterate acceleration five(5) times
 def car1_acceleration():
-    for i in range(5):
+    for i in range(-1,5,1):
+        time.sleep(1)
         car1.accelerate()
         update_car_speed()
         update_loading_bar((i+1) * 20)
         root.update()
-        time.sleep(1)
 
     # Create label each acceleration
-    car_speed_label = tk.Label(root, text=f"\nMy Speed after 5x acceleration:  {car1.get_speed()} mph", font=("Arial", 12))
-    car_speed_label.pack()
+    car_speed_label_1 = tk.Label(root, text=f"\nMy current Speed: {car1.get_speed()} mph", font=("Arial", 12))
+    car_speed_label_1.pack()
+    car_speed_label_2 = tk.Label(root, text="After 5x acceleration")
+    car_speed_label_2.pack()
 
 # Iterate deceleration five(5) times
 def car1_brake():
@@ -67,8 +70,10 @@ def car1_brake():
         time.sleep(1)
 
     # Create label each deceleration
-    car_speed_label = tk.Label(root, text=f"My Speed after 5x brake:  {car1.get_speed()} mph", font=("Arial", 12))
+    car_speed_label = tk.Label(root, text=f"My current Speed:  {car1.get_speed()} mph", font=("Arial", 12))
     car_speed_label.pack()
+    car_speed_label_2 = tk.Label(root, text="After 5x brake")
+    car_speed_label_2.pack()
 
 
 car1_acceleration()
