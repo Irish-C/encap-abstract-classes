@@ -19,13 +19,13 @@ class Pet:
         self.__age = age
 
     # a method that returns the pet's name
-    def get_name():
-        pass
+    def get_name(self):
+        return self.__name
 
     # a method that returns what type of animal
-    def get_animal_type():
-        pass
+    def get_animal_type(self):
+        return self.__animal_type
 
     # a method that returns the pet's age
-    def get_age():
-        pass
+    def get_age(self):
+        return self.__age
