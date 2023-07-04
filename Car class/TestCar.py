@@ -26,6 +26,9 @@ car1 = Car(2017, 'Volkswagen', '')
 root = tk.Tk()
 root.title('Car Testing')
 
+car_info_label = tk.LabelFrame(root, text=f"Car: {car1._Car__year_model}, {car1._Car__make}")
+car_info_label.pack()
+
 # create a label for current speed
 speed_label = tk.Label(root, text="Current Speed: 0 mph")
 speed_label.pack()
@@ -35,28 +38,32 @@ loading_bar = ttk.Progressbar(root, orient="horizontal", length=200, mode="deter
 loading_bar.pack()
 
 # Iterate acceleration five(5) times
-for i in range(5):
-    car1.accelerate()
-    update_car_speed()
-    update_loading_bar((i+1) * 20)
-    root.update()
-    time.sleep(1)
+def car1_acceleration():
+    for i in range(5):
+        car1.accelerate()
+        update_car_speed()
+        update_loading_bar((i+1) * 20)
+        root.update()
+        time.sleep(1)
 
-# Create label each acceleration
-car_speed_label = tk.Label(root, text=f"\nYour current Speed after 5x acceleration:  {car1.get_speed()} mph")
-car_speed_label.pack()
-
+    # Create label each acceleration
+    car_speed_label = tk.Label(root, text=f"\nYour current Speed after 5x acceleration:  {car1.get_speed()} mph")
+    car_speed_label.pack()
 
 # Iterate deceleration five(5) times
-for i in range(5):
-    car1.brake()
-    update_car_speed()
-    update_loading_bar((i+1) * 20)
-    root.update()
-    time.sleep(1)
+def car1_brake():
+    for i in range(5):
+        car1.brake()
+        update_car_speed()
+        update_loading_bar((i+1) * 20)
+        root.update()
+        time.sleep(1)
 
-# Create label each deceleration
-car_speed_label = tk.Label(root, text=f"\nYour current Speed after 5x brake:  {car1.get_speed()} mph")
-car_speed_label.pack()
+    # Create label each deceleration
+    car_speed_label = tk.Label(root, text=f"\nYour current Speed after 5x brake:  {car1.get_speed()} mph")
+    car_speed_label.pack()
 
+
+car1_acceleration()
+car1_brake()
 root.mainloop()
