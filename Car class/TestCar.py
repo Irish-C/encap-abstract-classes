@@ -16,12 +16,12 @@ class TestCar():
         self.root.geometry("600x400+{}+{}".format(int(self.root.winfo_screenwidth() / 2 - 300), 0))
 
         # Create a car object
-        self.car1 = Car(2017, 'Volkswagen',0)
+        self.car1 = Car(2017, 'Volkswagen', 0)
 
         # Create Car info of car1 into a frame
         self.car_info_frame = tk.LabelFrame(self.root, text="MY CAR")
         self.car_info_frame.pack()
-        self.car_info_label = tk.Label(self.car_info_frame, text=f"\nYear: {self.car1.__year_model}\nMake: {self.car1.__make}\n", font=("Arial", 11))
+        self.car_info_label = tk.Label(self.car_info_frame, text=f"\nYear: {self.car1._Car__year_model}\nMake: {self.car1._Car__make}\n", font=("Arial", 11))
         self.car_info_label.pack()
 
         # create a loading bar layout
@@ -32,8 +32,13 @@ class TestCar():
         self.speed_label = tk.Label(self.root, text="\n0 mph")
         self.speed_label.pack()
 
+    def run(self):
+        self.car1_accelerate()
+        self.car1_brake()
+        self.root.mainloop()
+
     # Iterate acceleration five(5) times
-    def car1_acceleration(self):
+    def car1_accelerate(self):
         for i in range(5):
             time.sleep(1)
             self.car1.accelerate()
@@ -41,9 +46,9 @@ class TestCar():
             self.update_loading_bar((i+1) * 20)
             self.root.update()
 
-        car_speed_label_1 = tk.Label(self.root, text=f"My current Speed:  {self.car1.get_speed()} mph", font=("Arial", 12))
+        car_speed_label_1 = tk.Label(self.root, text=f"\nMy current Speed:  {self.car1.get_speed()} mph", font=("Arial", 12))
         car_speed_label_1.pack()
-        car_speed_label_1 = tk.Label(self.root, text="After 5x brake")
+        car_speed_label_1 = tk.Label(self.root, text="After 5x acceleration")
         car_speed_label_1.pack()
 
     # Iterate brake five(5) times
@@ -54,8 +59,8 @@ class TestCar():
             self.update_car_speed()
             self.update_loading_bar((i+1) * 20)
             self.root.update()
-            
-        car_speed_label_2 = tk.Label(self.root, text=f"My current Speed:  {self.car1.get_speed()} mph", font=("Arial", 12))
+
+        car_speed_label_2 = tk.Label(self.root, text=f"\nMy current Speed:  {self.car1.get_speed()} mph", font=("Arial", 12))
         car_speed_label_2.pack()
         car_speed_label_2 = tk.Label(self.root, text="After 5x brake")
         car_speed_label_2.pack()
@@ -68,3 +73,6 @@ class TestCar():
     # a method that updates loading bar
     def update_loading_bar(self, value):
         self.loading_bar['value'] = value
+
+Test_car1 = TestCar()
+Test_car1.run()
