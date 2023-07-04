@@ -1,6 +1,7 @@
 # import Car module
 from Car import Car
 import tkinter as tk
+from tkinter import ttk
 
 # a method that returns a current speed
 def update_car_speed():
@@ -14,7 +15,15 @@ def update_loading_bar(value):
 
 
 # Create a car object
-car1 = Car(2017, 'Volkswagen')
+car1 = Car(2017, 'Volkswagen', '')
 
 root = tk.Tk()
 root.title('Car Testing')
+
+speed_label = tk.Label(root, text="Current Speed: 0 mph")
+speed_label.pack()
+
+loading_bar = ttk.Progressbar(root, orient="horizontal", length=200, mode="determinate")
+loading_bar.pack()
+
+root.mainloop()
