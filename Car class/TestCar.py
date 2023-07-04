@@ -1,7 +1,6 @@
 # import Car module
 from Car import Car
 import tkinter as tk
-import time
 
 # Create TestCar class
 class TestCar:
@@ -13,3 +12,6 @@ class TestCar:
 
 # Create a car object
 car1 = Car(2017, 'Volkswagen')
+
+root = tk.Tk()
+root.title('Car Testing')
