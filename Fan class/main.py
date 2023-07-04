@@ -1,4 +1,5 @@
 from TestFan import TestFan
 
 if __name__ == '__main__':
-    TestFan().run()
+    test_fan = TestFan()
+    test_fan.run()
