@@ -6,7 +6,7 @@ class TestFan:
     def run(self):
 
         # insert theme
-        sg.theme('DarkBlue4')
+        sg.theme('LightBlue6')
 
         # create two objects
         fan1 = Fan()
@@ -28,9 +28,9 @@ class TestFan:
 
         # Place fan1 and fan2 into the TestFan layout
         TestFan_layout = [
-            [sg.Text(title.center(50), font=('Algerian', 25), justification='center')],
-            [sg.Frame('', [[sg.Text(f"Fan 1 is turned {'On' if fan1.get_on() else 'Off'} \n\nspeed: {fan1.get_speed()} \nradius: {fan1.get_radius()} \ncolor: {fan1.get_color()}\n\n\n", size=(50,5), font=('Elephant',12))]], background_color='Pink',border_width=3)], 
-            [sg.Frame('', [[sg.Text(f"Fan 2 is turned {'On' if fan2.get_on() else 'Off'} \n\nspeed: {fan2.get_speed()} \nradius: {fan2.get_radius()} \ncolor: {fan2.get_color()}\n\n\n", size=(50,5), font=('Elephant',12))]], background_color='Pink',border_width=3)], 
+            [sg.Text(title.center(50), font=('Elephant', 25), justification='center')],
+            [sg.Frame('', [[sg.Text(f"  Fan 1 is turned {'On' if fan1.get_on() else 'Off'} \n\n  speed: {fan1.get_speed()} \n  radius: {fan1.get_radius()} \n  color: {fan1.get_color()}\n\n\n", size=(50,5), font=('Lucida',12))]], background_color='Light Green',border_width=3)], 
+            [sg.Frame('', [[sg.Text(f"  Fan 2 is turned {'On' if fan2.get_on() else 'Off'} \n\n  speed: {fan2.get_speed()} \n  radius: {fan2.get_radius()} \n  color: {fan2.get_color()}\n\n\n", size=(50,5), font=('Lucida',12))]], background_color='Pink',border_width=3)], 
         ]
 
         # Create TestTV window
