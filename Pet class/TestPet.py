@@ -12,21 +12,7 @@ class TestPet:
         # Create TestPet window
         self.root = tk.Tk()
         self.root.title('My Pet Profile')
-        self.root.geometry("600x400+{}+{}".format(int(self.root.winfo_screenwidth() / 2 - 300), 0))
-
-
-        # A frame to hold the pet information
-        self.pet_info_frame = ttk.LabelFrame(self.root, text="PET INFORMATION")
-        self.pet_info_frame.pack()
-        # A label to display the pet's information
-        self.pet_info_label = ttk.Label(self.pet_info_frame, text=f'''                   
-                            ╱|、
-                        ? (˚ˎ 。7  
-                           |、˜〵          
-                          じしˍ,)ノ
-                           Meow!\n''')
-        self.pet_info_label.pack()
-
+        self.root.geometry("600x420+{}+{}".format(int(self.root.winfo_screenwidth() / 2 - 300), 0))
 
         # An input feature for the pet's name
         self.name_label = ttk.Label(self.root, text="\nPet Name:")
@@ -62,6 +48,20 @@ class TestPet:
         self.message_label = ttk.Label(self.root, text="")
         self.message_label.pack()
 
+
+        # A frame to hold the pet information
+        self.pet_info_frame = ttk.LabelFrame(self.root, text="PET INFORMATION", width=30, height=300)
+        self.pet_info_frame.pack()
+        # A label to display the pet's information
+        self.pet_info_label = ttk.Label(self.pet_info_frame, text=f'''                   
+                        ╱|、
+                    ? (˚ˎ 。7  
+                        |、˜〵          
+                        じしˍ,)ノ
+                        Meow!\n''')
+        self.pet_info_label.pack()
+
+
     # a method that saves the pet's information
     def save_pet_info(self):
         name = self.name_entry.get()
@@ -74,13 +74,13 @@ class TestPet:
                 self.pet.set_name(name)
                 self.pet.set_animal_type(animal_type)
                 self.pet.set_age(int(age))
-                self.message_label.config(text="Pet information saved!\n")
+                self.message_label.config(text="Pet information saved! ˶ᵔ ᵕ ᵔ˶\n")
                 self.show_pet_info()
                 
             else:
-                self.message_label.config(text="Remember age is just a number ^_^\n")
+                self.message_label.config(text="Remember age is just a number ˶ᵔ ᵕ ᵔ˶ \n")
         else:
-            self.message_label.config(text="Please fill in all fields.\n")
+            self.message_label.config(text="Please fill in all fields. ˶ᵔ ᵕ ᵔ˶ \n")
     
     # A method that displays the pet's information
     def show_pet_info(self):
@@ -88,7 +88,17 @@ class TestPet:
         animal_type = self.pet.get_animal_type()
         age = self.pet.get_age()
         age_unit = self.age_unit.get()
-        pet_info = f"Pet Name: {name}\nAnimal Type: {animal_type}\nAge: {age} {age_unit}, "
+        pet_info = f'''Pet Name: {name}\t\nAnimal Type: {animal_type}\t\nAge: {age} {age_unit}\t\n                
+                        ╱|、
+                    ! (˚o 。7  
+                        |、˜〵          
+                        じしˍ,)ノ
+                        ♡♡♡♡\n'''
+        # pet_info = f'''                   
+        #      ╱|、    Pet Name: {name}
+        #     (˚, 。7  Animal Type: {animal_type}
+        #     |、˜〵   Age: {age} {age_unit}      
+        #     じしˍ,)ノ 𓆝 𓆟 𓆞 𓆝 𓆟
+        #     \n'''
         self.pet_info_label.config(text=pet_info)
         messagebox.showinfo("Pet Information", pet_info)
-
