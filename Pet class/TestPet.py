@@ -16,20 +16,24 @@ class TestPet:
         # An input feature for the pet's name
         self.name_label = ttk.Label(self.root, text="Pet Name:")
         self.name_label.pack()
-        self.name_entry = ttk.Entry(self.root)
+        self.name_entry = ttk.Entry(self.root, justify='center')
         self.name_entry.pack()
 
         # An input feature for the pet's animal type
         self.animal_type_label = ttk.Label(self.root, text="Animal Type:")
         self.animal_type_label.pack()
-        self.animal_type_entry = ttk.Entry(self.root)
+        self.animal_type_entry = ttk.Entry(self.root, justify='center')
         self.animal_type_entry.pack()
 
         # An input feature for the pet's age
         self.age_label = ttk.Label(self.root, text="Age:")
         self.age_label.pack()
-        self.age_entry = ttk.Entry(self.root)
+        self.age_entry = ttk.Entry(self.root, justify='center')
         self.age_entry.pack()
+        
+        self.age_unit = ttk.Combobox(values=["days", "weeks", "months", "years"], justify='center')
+        self.age_unit.current(0)
+        self.age_unit.pack()
 
         # Add space between age entry and save button
         self.root.grid_columnconfigure(0, weight=1)
@@ -56,6 +60,7 @@ class TestPet:
                 self.pet.set_animal_type(animal_type)
                 self.pet.set_age(int(age))
                 self.message_label.config(text="Pet information saved!")
+                
             else:
                 self.message_label.config(text="Remember age is just a number ^_^")
         else:
