@@ -49,11 +49,14 @@ class TestPet:
         animal_type = self.animal_type_entry.get()
         age = self.age_entry.get()
 
-        if age.isdigit():  # Check if age is a positive integer value
-            self.pet.set_name(name)
-            self.pet.set_animal_type(animal_type)
-            self.pet.set_age(int(age))
-            self.message_label.config(text="Pet information saved!")
-            
+        # Check if inputs are valid
+        if name != "" and animal_type != "":
+            if age.isdigit():
+                self.pet.set_name(name)
+                self.pet.set_animal_type(animal_type)
+                self.pet.set_age(int(age))
+                self.message_label.config(text="Pet information saved!")
+            else:
+                self.message_label.config(text="Remember age is just a number ^_^")
         else:
-            self.message_label.config(self.root, text="Remember age is just a number ^_^")
+            self.message_label.config(text="Please fill in all fields.")
