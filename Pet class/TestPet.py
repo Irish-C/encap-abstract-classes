@@ -31,9 +31,17 @@ class TestPet:
         self.age_entry = ttk.Entry(self.root)
         self.age_entry.pack()
 
+        # Add space between age entry and save button
+        self.root.grid_columnconfigure(0, weight=1)
+        self.root.grid_rowconfigure(3, weight=1)
+
         # a save button for pet profile
         self.save_button = ttk.Button(self.root, text="Save", command=self.save_pet)
-        self.save_button.pack()
+        self.save_button.pack(pady=10)
+
+        # A label to display messages
+        self.message_label = ttk.Label(self.root, text="")
+        self.message_label.pack()
 
     # a method that saves the name, animal_type, and age of the pet
     def save_pet(self):
@@ -45,3 +53,7 @@ class TestPet:
             self.pet.set_name(name)
             self.pet.set_animal_type(animal_type)
             self.pet.set_age(int(age))
+            self.message_label.config(text="Pet information saved!")
+            
+        else:
+            self.message_label.config(self.root, text="Remember age is just a number ^_^")

@@ -9,7 +9,7 @@ class Pet:
     # a method that sets the pet's name
     def set_name(self, name):
         self.__name = name
-        
+
     # a method that sets what type of animal
     def set_animal_type(self, animal_type):
         self.__animal_type = animal_type
