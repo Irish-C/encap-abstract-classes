@@ -2,6 +2,7 @@
 from Pet import Pet
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 
 # Create TestPet class
 class TestPet:
@@ -40,15 +41,19 @@ class TestPet:
         self.root.grid_rowconfigure(3, weight=1)
 
         # a save button for pet profile
-        self.save_button = ttk.Button(self.root, text="Save", command=self.save_pet)
+        self.save_button = ttk.Button(self.root, text="Save", command=self.save_pet_info)
         self.save_button.pack(pady=10)
 
         # A label to display messages
         self.message_label = ttk.Label(self.root, text="")
         self.message_label.pack()
 
-    # a method that saves the name, animal_type, and age of the pet
-    def save_pet(self):
+        # A label to display the pet's information
+        self.pet_info_label = ttk.Label(self.root, text="")
+        self.pet_info_label.pack()
+
+    # a method that saves the name, animal_type, and age w/ unit of the pet
+    def save_pet_info(self):
         name = self.name_entry.get()
         animal_type = self.animal_type_entry.get()
         age = self.age_entry.get()
@@ -60,8 +65,19 @@ class TestPet:
                 self.pet.set_animal_type(animal_type)
                 self.pet.set_age(int(age))
                 self.message_label.config(text="Pet information saved!")
+                self.show_pet_info()
                 
             else:
                 self.message_label.config(text="Remember age is just a number ^_^")
         else:
             self.message_label.config(text="Please fill in all fields.")
+    
+    # a method that displays the name, animal_type, and age w/ unit of the pet
+    def show_pet_info(self):
+        name = self.pet.get_name()
+        animal_type = self.pet.get_animal_type()
+        age = self.pet.get_age()
+        age_unit = self.age_unit.get()
+        pet_info = f"Pet Name: {name}\nAnimal Type: {animal_type}\nAge: {age} {age_unit}"
+        self.pet_info_label.config(text=pet_info)
+        messagebox.showinfo("Pet Information", pet_info)
