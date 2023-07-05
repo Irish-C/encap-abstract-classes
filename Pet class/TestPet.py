@@ -12,7 +12,7 @@ class TestPet:
         # Create TestPet window
         self.root = tk.Tk()
         self.root.title('My Pet Profile')
-        self.root.geometry('300x250')
+        self.root.geometry("600x400+{}+{}".format(int(self.root.winfo_screenwidth() / 2 - 300), 0))
 
         # An input feature for the pet's name
         self.name_label = ttk.Label(self.root, text="Pet Name:")
