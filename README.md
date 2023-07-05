@@ -34,7 +34,7 @@ To install the necessary modules, open up your terminal or command prompt and ty
     - ```cd <Copy Path>```
         - cd means change directory. Find the folder in your IDE and copy path.
     - ```python <file name>.py```
-        - this will run your chosen file. In this case, ***main.py*** of any folder.
+        - this will run your chosen file. In this case, ```main.py``` of any folder.
 3. Below will be the next event and instruction. Please follow.
 
 
@@ -54,12 +54,12 @@ To install the necessary modules, open up your terminal or command prompt and ty
     - Name:
     - Animal Type:
     - Age:
-5. If the user click the *save* button without inputting. The program will asked them to input the required field.
+5. If the user click the ```save``` button without inputting. The program will asked them to input the required field.
     - User is allowed to characters and numbers. This is due to unique naming of pet owners.
-    - Example: Xander5ive or Luna9th
+    - Example: ```Xander5ive or Luna9th```
 6. On the other hand, if user input characters in Age. The program will not accept and ask user to input correctly.
 7. Additionally, in age field, there is age unit included so that user can specify their pet's age.
-    - Choices are **days, weeks, months, and years**
+    - Choices are ```days, weeks, months, and years```
 8. The program will show the following output.
 >![preview](images/cat_result.png)
 <br/>
