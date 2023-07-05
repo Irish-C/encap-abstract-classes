@@ -2,9 +2,9 @@
 class Pet:
     # constructor
     def __init__(self, name, animal_type, age):
-        self.__name = name
-        self.__animal_type = animal_type
-        self.__age = age
+        self.__name = ""
+        self.__animal_type = ""
+        self.__age = 0
 
     # a method that sets the pet's name
     def set_name(self, name):
